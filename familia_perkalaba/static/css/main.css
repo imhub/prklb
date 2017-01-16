@@ -1,0 +1,58 @@
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+
+  #topContainer {
+   background-image:url("../img/siroga.jpg");
+   height:auto;
+   width:100%;
+   margin-top:-100px;
+
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat:no-repeat;
+   background-size: cover;
+   }
+
+   #topRow {
+
+    margin-top:180px;
+
+    }
+
+  #bottomContainer {
+    background-image:url("../img/daraba.png");
+    height:auto;
+    width:100%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    }
+
+  .center {
+    text-align:center;
+    }
+
+  .title {
+    margin-top:100px;
+
+    }
+
+  #footer {
+    background-color:#B0D1FB;
+    padding-top:70px;
+    width:100%;
+    }
+
+  .news{
+    height:200px;
+
+  }
+
+  .navbar-fixed-bottom{
+    background-color:#f9d616;
+    height:50px;
+    width:100%;
+  }
