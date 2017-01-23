@@ -14,6 +14,18 @@
    background-size: cover;
    }
 
+   #newsContainer {
+    background-image:url("../img/siroga.jpg");
+    height:auto;
+    width:100%;
+    margin-top:-100px;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    }
+
    #topRow {
 
     margin-top:180px;

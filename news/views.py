@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .models import Article
 
 def newspage(request):
-    return HttpResponse('<h1>NewsList</h1>')
+    return render(request, 'home/newspage.html', {})
+
+def newslist(request):
+    news = Article.objects.all()
+    return render(request, 'home/newspage.html', {'news': news})

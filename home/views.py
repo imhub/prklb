@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def homepage(request):
-    return render(request, 'home/index.html', {})
+    return render(request, 'home/homepage.html', {})

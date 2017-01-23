@@ -1,0 +1,64 @@
+{% extends "home/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Official Site{% endblock meta_title %}
+{% block title %}Official Site{% endblock title %}
+{% block content %}
+    <div class = "container" id = "topContainer">
+    </div>
+
+    <div class = "container" id = "bottomContainer">
+      <!-- Example row of columns -->
+
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Новини</h2>
+          <p class="news">повернулися домів. київ і хмельницький скупали нас в любові.приїхали наповнені по самі вуха. оскільки у нас принцип-приїхали-відбомбились і поїхали, то багато кєнтів бачили тіки секунду. та і не хіпі ми аби по флетах зависати. у нас тут вівці.їх пасти треба. а баранів різати.
+будемо ще. </p>
+          <p><a class="btn btn-default" href="{% url "news" %}" role="button">До новин &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>Музика</h2>
+          <iframe width="100%" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/215056872&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+      </iframe>
+          <p><a class="btn btn-default" href="{% url "music" %}" role="button">До музики &raquo;</a></p>
+       </div>
+        <div class="col-md-3">
+          <h2>Кіно</h2>
+          <iframe width="100%" height="200" src="https://www.youtube.com/embed/g4HioNv6JVs" frameborder="0" allowfullscreen></iframe>
+          <p><a class="btn btn-default" href="{% url "videos" %}" role="button">До кіна &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>Афіша</h2>
+          <a href="img/afisha.jpg">
+            <img class="media-object" src="{% static "img/afisha.jpg" %}" alt="docker" height="200">
+          </a>
+          <p><a class="btn btn-default" href="{% url "shows" %}" role="button">До сррраки &raquo;</a></p>
+        </div>
+      </div>
+
+
+      <a name = contacts></a>
+      <div class = "row">
+
+        <h2 class="center title">Management Contacts</h2>
+        <br>
+        <div class="col-md-2 col-md-offset-3">
+          <center><img src="{% static "icons/email.png" %}"></center>
+        </div>
+        <div class="col-md-2">
+          <center><img src="{% static "icons/phone.png" %}"></center>
+        </div>
+        <div class="col-md-2">
+          <center><img src="{% static "icons/skype.png" %}"></center>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class = "container" id = "topContainer">
+    </div>
+
+{% endblock content %}
