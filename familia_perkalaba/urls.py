@@ -1,5 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf.urls.static import static
+from .settings import MEDIA_URL, MEDIA_ROOT, DEBUG
 
 urlpatterns = [
     url('', include('home.urls')),
@@ -9,3 +11,6 @@ urlpatterns = [
     url(r'^videos/', include('videos.urls')),
     url(r'^admin/', admin.site.urls),
 ]
+
+if DEBUG:
+    urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

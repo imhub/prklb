@@ -4,8 +4,32 @@
 {% block title %}Новини{% endblock title %}
 {% block content %}
     <div class = "container" id = "newsContainer">
+
+
+      <br><br><br><br><br>
+      <div class = "container">
+
+        {% for article in news %}
+
+          <h2><a href="{% url 'readthenews' pk=article.pk %}">{{ article.title }}</a></h2>
+          <p>{{ article.published_date }}</p>
+          <div class = "row">
+            <div class = "col-md-4">
+              {% if article.picture %}
+                <img src="{{ article.picture.url }}" class="img-responsive">
+              {% else %}
+                <img src="{% static "img/default.jpg" %}" class="img-responsive">
+              {% endif %}
+            </div>
+            <div class = "col-md-4">
+              <p>{{ article.blog_content|linebreaksbr|truncatewords:50 }}<a href="{% url 'readthenews' pk=article.pk %}"> READ MORE</a></p>
+            </div>
+          </div>
+          <hr>
+        {% endfor %}
+      </div>
     </div>
 
-    
+
 
 {% endblock content %}

@@ -8,17 +8,21 @@ class Article(models.Model):
         verbose_name_plural="Familia Perkalaba news"
 
     brief_title = models.CharField(
-        blank=True,
-        null=True,
+        blank=False,
+        null=False,
         max_length=400,
         verbose_name="Крткй зглвк для головної сторінки"
         )
 
     title = models.TextField(
+        blank=False,
+        null=False,
         verbose_name="Заголовок"
         )
 
     blog_content = models.TextField(
+        blank=False,
+        null=False,
         verbose_name="Текст новини"
         )
 

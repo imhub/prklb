@@ -14,8 +14,7 @@
       <div class="row">
         <div class="col-md-3">
           <h2>Новини</h2>
-          <p class="news">повернулися домів. київ і хмельницький скупали нас в любові.приїхали наповнені по самі вуха. оскільки у нас принцип-приїхали-відбомбились і поїхали, то багато кєнтів бачили тіки секунду. та і не хіпі ми аби по флетах зависати. у нас тут вівці.їх пасти треба. а баранів різати.
-будемо ще. </p>
+          <p class="news">{{ latestnews.blog_content|linebreaksbr|truncatewords:30 }}<a href = "{% url "readthenews" pk=latestnews.pk %}">READ MORE</a></p>
           <p><a class="btn btn-default" href="{% url "news" %}" role="button">До новин &raquo;</a></p>
         </div>
         <div class="col-md-3">
