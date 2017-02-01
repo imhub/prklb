@@ -44,13 +44,13 @@
         <h2 class="center title">Management Contacts</h2>
         <br>
         <div class="col-md-2 col-md-offset-3">
-          <center><img src="{% static "icons/email.png" %}"></center>
+          <center><p id = "email"><img src="{% static "icons/email.png" %}" onclick="message('{{ band.email }}', 'email')"/></p></center>
         </div>
         <div class="col-md-2">
-          <center><img src="{% static "icons/phone.png" %}"></center>
+          <center><p id = "phone"><img src="{% static "icons/phone.png" %}"onclick="message('{{ band.phone }}', 'phone')"/></p></center>
         </div>
         <div class="col-md-2">
-          <center><img src="{% static "icons/skype.png" %}"></center>
+          <center><p id = "skype"><img src="{% static "icons/skype.png" %}"onclick="message('{{ band.skype }}', 'skype')"/></p></center>
         </div>
       </div>
 

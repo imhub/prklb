@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Familia Perkalaba - {% block meta_title %}{% endblock meta_title%}</title>
-    <meta name="description" value="Familia Perkalaba Official Site" />
+    <title>{{ band.bandsname }} - {% block meta_title %}{% endblock meta_title%}</title>
+    <meta name="description" value="{{ band.bandsname }} Official Site" />
 
     <!-- Bootstrap -->
 	<!-- Latest compiled and minified CSS -->
@@ -41,9 +41,6 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
-
-
   </head>
   <body>
 
@@ -58,7 +55,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{{ PORTAL_URL }}">
-            <img style="margin-top: -15px;" alt="Familia Perkalaba" src="{{ PORTAL_URL }}{% static "img/familia_perkalaba_logo2.jpg" %}"></a>
+            <img style="margin-top: -15px;" alt="{{ band.bandsname }}" src="{{ PORTAL_URL }}{% static "img/familia_perkalaba_logo2.jpg" %}"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -128,14 +125,10 @@
     <!-- End Footer -->
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script>
-      $("#topContainer").css("min-height",$(window).height());
-      $("#newsContainer").css("min-height",$(window).height());
-      $("#bottomContainer").css("min-height",$(window).height());
-    </script>
+    <script type = "text/javascript" src="{{ PORTAL_URL }}{% static "js/main.js" %}"></script>
+
   </body>
 </html>

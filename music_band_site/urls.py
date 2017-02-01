@@ -1,7 +1,8 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
-from .settings import MEDIA_URL, MEDIA_ROOT, DEBUG
+from .settings import DEBUG, MEDIA_URL, MEDIA_ROOT
+
 
 urlpatterns = [
     url('', include('home.urls')),

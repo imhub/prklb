@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'familia_perkalaba.urls'
+ROOT_URLCONF = 'music_band_site.urls'
 
 TEMPLATES = [
     {
@@ -53,7 +53,8 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'familia_perkalaba.context_processors.familia_proc',
+                'django.template.context_processors.media',
+                'music_band_site.context_processors.musicbandsite_proc',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -61,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'familia_perkalaba.wsgi.application'
+WSGI_APPLICATION = 'music_band_site.wsgi.application'
 
 
 

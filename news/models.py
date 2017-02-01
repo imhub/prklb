@@ -4,15 +4,8 @@ from django.utils import timezone
 class Article(models.Model):
 
     class Meta(object):
-        verbose_name="Familia Perkalaba news"
-        verbose_name_plural="Familia Perkalaba news"
-
-    brief_title = models.CharField(
-        blank=False,
-        null=False,
-        max_length=400,
-        verbose_name="Крткй зглвк для головної сторінки"
-        )
+        verbose_name="Band's news"
+        verbose_name_plural="Band's news"
 
     title = models.TextField(
         blank=False,
