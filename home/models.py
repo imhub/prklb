@@ -18,6 +18,12 @@ class HomepageInitialSettings(models.Model):
         null=True
         )
 
+    rider = models.ImageField(
+        blank=True,
+        verbose_name="Technical Rider",
+        null=True
+        )
+
     phone = models.CharField(
         max_length = 15,
         blank=False,

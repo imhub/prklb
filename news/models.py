@@ -7,7 +7,8 @@ class Article(models.Model):
         verbose_name="Band's news"
         verbose_name_plural="Band's news"
 
-    title = models.TextField(
+    title = models.CharField(
+        max_length=200,
         blank=False,
         null=False,
         verbose_name="Заголовок"

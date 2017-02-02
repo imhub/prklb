@@ -58,13 +58,29 @@
     width:100%;
     }
 
-  .news{
+  p.news{
     height:200px;
+    background-color: grey;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
 
+  p.newsblock{
+    height:auto;
+    background-color: grey;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
   }
 
   .navbar-fixed-bottom{
     background-color:#f9d616;
     height:50px;
     width:100%;
+  }
+
+  /* Form Styles */
+  textarea,
+  select,
+  input {
+    max-width: 300px;
   }
