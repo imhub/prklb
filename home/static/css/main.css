@@ -77,10 +77,3 @@
     height:50px;
     width:100%;
   }
-
-  /* Form Styles */
-  textarea,
-  select,
-  input {
-    max-width: 300px;
-  }

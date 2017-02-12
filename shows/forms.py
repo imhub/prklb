@@ -1,16 +1,16 @@
 from django import forms
 from django.core.urlresolvers import reverse
 
-from .models import Article
+from .models import Poster
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
-class AddNewsForm(forms.ModelForm):
+class AddShowForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
     # call original initializator
-        super(AddNewsForm, self).__init__(*args, **kwargs)
+        super(AddShowForm, self).__init__(*args, **kwargs)
 
         # this helper object allows us to customize form
         self.helper = FormHelper()
@@ -18,7 +18,7 @@ class AddNewsForm(forms.ModelForm):
         # form tag attributes
         self.helper.form_class = 'form-horizontal'
         self.helper.form_method = 'post'
-        self.helper.form_action = reverse('add_news')
+        self.helper.form_action = reverse('add_show')
 
         # twitter bootstrap styles
         self.helper.help_text_inline = True
@@ -30,5 +30,5 @@ class AddNewsForm(forms.ModelForm):
         self.helper.add_input(Submit('send_button', 'Save'))
 
     class Meta:
-        model = Article
-        fields = ('title', 'blog_content', 'picture',)
+        model = Poster
+        fields = ('venue', 'show_date', 'show_info', 'tickets_link', 'affiche',)
