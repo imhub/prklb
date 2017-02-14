@@ -4,13 +4,27 @@
 {% block title %}Official Site{% endblock title %}
 {% block content %}
     <div class = "container" id = "topContainer">
+
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      {% if user.is_authenticated%}
+        <div class="btn-group" role="group">
+          <a name = actions></a>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="{% url "add_news" %}">Add news</a></li>
+            <li><a href="{% url "add_show" %}">Add show</a></li>
+            <li><a href="#">Add album</a></li>
+            <li><a href="#">Add video</a></li>
+            <hr>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      {% endif %}
     </div>
 
     <div class = "container" id = "bottomContainer">
-      <!-- Example row of columns -->
-
-
-
       <div class="row">
         <div class="col-md-3">
           <h2>Новини</h2>

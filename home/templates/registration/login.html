@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+{% block meta_title %}Authenticate{% endblock meta_title %}
+{% block title %}Authenticate{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+{% if form.errors %}
+     <p>Your username and password didn't match. Please get the fucking hell out of here.</p>
+{% endif %}
+
+
+  <div class = "jumbotron">
+     <form method="post" action="{% url 'login' %}">
+     {% csrf_token %}
+         <table>
+         <tr>
+             <td>{{ form.username.label_tag }}</td>
+             <td>{{ form.username }}</td>
+         </tr>
+         <tr>
+             <td>{{ form.password.label_tag }}</td>
+             <td>{{ form.password }}</td>
+         </tr>
+         </table>
+
+         <input type="submit" value="login" />
+         <input type="hidden" name="next" value="{{ next }}" />
+     </form>
+   </div>
+</div>
+{% endblock %}

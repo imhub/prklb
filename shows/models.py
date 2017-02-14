@@ -32,7 +32,8 @@ class Poster(models.Model):
         null=True
         )
 
-    tickets_link = models.TextField(
+    tickets_link = models.URLField(
+        max_length = 400,
         blank=True,
         verbose_name="Link to buy tickets"
         )

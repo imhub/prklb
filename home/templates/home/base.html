@@ -62,13 +62,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li {% if '/news' in request.path %} class="active" {% endif %}><a href="{% url "news" %}">Новини <span class="sr-only">(current)</span></a></li>
-            <li {% if '/videos' in request.path %} class="active" {% endif %}><a href="{% url "videos" %}">Кіно</a></li>
-            <li {% if '/music' in request.path %} class="active" {% endif %}><a href="{% url "music" %}">Музика</a></li>
-            <li {% if '/shows' in request.path %} class="active" {% endif %}><a href="{% url "shows" %}">Афіша</a></li>
+            <li {% if '/news' in request.path %} class="active" {% endif %}><a href="{% url "news" %}">News <span class="sr-only">(current)</span></a></li>
+            <li {% if '/videos' in request.path %} class="active" {% endif %}><a href="{% url "videos" %}">Videos</a></li>
+            <li {% if '/music' in request.path %} class="active" {% endif %}><a href="{% url "music" %}">Albums</a></li>
+            <li {% if '/shows' in request.path %} class="active" {% endif %}><a href="{% url "shows" %}">Upcoming Shows</a></li>
         <!-- add fuckin rider -->
-            <li><a href="/easyrider">Райдор</a></li>
-            <li><a href="#contacts">Кантахт</a></li>
+            <li><a href="/easyrider">Technical Rider</a></li>
+            <li><a href="#contacts">Contacts</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="container-fluid">
@@ -112,8 +112,13 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+    <div class="page-header">
+      {% if user.is_authenticated %}
+          <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+          <h1>Go to <a href="{{ PORTAL_URL }}#actions">Actions</a> and make some noise!</h1>
+      {% endif %}
 
-
+    </div>
     <h2>{% block title %}{% endblock title %}</h2>
     {% block content %}{% endblock content %}
 

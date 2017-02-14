@@ -13,6 +13,9 @@
         {% if show.affiche %}
           <center><img src="{{ show.affiche.url }}" class="img-responsive">
           </center>
+        {% else %}
+          <center><img src="{% static "img/afisha_default.jpg" %}" class="img-responsive">
+          </center>
         {% endif %}
         <div class="row">
           <div class="col-md-6 col-md-offset-3"><h1>{{ show.show_date }} {{ show.venue }}</h1>

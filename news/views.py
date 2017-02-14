@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 from .models import Article
 from .forms import AddNewsForm
+
 
 
 def newspage(request):
@@ -12,19 +14,24 @@ def readthenews(request, pk):
     article = get_object_or_404(Article, pk=pk)
     return render(request, 'home/readthenews.html', {'article': article})
 
+@login_required
 def add_news(request):
     if request.method == "POST":
         form = AddNewsForm(request.POST, request.FILES)
         if form.is_valid():
             article = form.save(commit=False)
             article.published_date = timezone.now()
-            article.picture = request.FILES['picture']
+            try:
+                article.picture = request.FILES['picture']
+            except KeyError:
+                pass
             article.save()
             return redirect('readthenews', pk=article.pk)
     else:
         form = AddNewsForm()
     return render(request, 'home/news_edit.html', {'form': form})
 
+@login_required
 def edit_news(request, pk):
     article = get_object_or_404(Article, pk=pk)
     if request.method == "POST":
@@ -32,7 +39,10 @@ def edit_news(request, pk):
         if form.is_valid():
             article = form.save(commit=False)
             article.published_date = timezone.now()
-            article.picture = request.FILES['picture']
+            try:
+                article.picture = request.FILES['picture']
+            except KeyError:
+                pass
             article.save()
             return redirect('readthenews', pk=article.pk)
     else:
