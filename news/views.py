@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Article
 from .forms import AddNewsForm, EditNewsForm
 from home.models import HomepageInitialSettings, LinksBar
+
 
 band = HomepageInitialSettings.objects.all()[0]
 links = LinksBar.objects.all()
@@ -11,6 +13,14 @@ links = LinksBar.objects.all()
 def newspage(request):
     news = Article.objects.filter(published_date__lte=timezone.now()).order_by(
         '-published_date')
+    paginator = Paginator(news, 5)
+    page = request.GET.get('page')
+    try:
+        news = paginator.page(page)
+    except PageNotAnInteger:
+        news = paginator.page(1)
+    except EmptyPage:
+        news = paginator.page(paginator.num_pages)
     return render(request, 'home/newspage.html', {
         'news': news, 'band': band, 'links': links})
 
