@@ -2,40 +2,65 @@
 {% load static from staticfiles %}
 {% block meta_title %}Show in {{ show.venue }}{% endblock meta_title %}
 {% block title %}Show in {{ show.venue }}{% endblock title %}
+{% block app_buttons %}
+  <p class="lead">
+    <a class="btn btn-info btn-lg" href="{% url 'edit_show' show.id %}"
+      role="button">Edit</a>
+    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+      data-target=".bs-example-modal-sm">Delete</button>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1"
+      role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="deleteNewsModalLabel">
+              Confirm delete</h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete the info about the show in
+            {{ show.venue }} on {{ show.show_date }}?
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-danger" href="{% url 'delete_show' show.id %}"
+              role="button">Yes</a>
+            <button type="button" class="btn btn-default"
+              data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p>
+{% endblock app_buttons %}
 {% block content %}
-    <div class = "container" id = "newsContainer">
-
-
-      <br><br><br><br><br>
+    <div class = "container" id = "topContainer">
       <div class = "container">
-
-
         {% if show.affiche %}
           <center><img src="{{ show.affiche.url }}" class="img-responsive">
           </center>
         {% else %}
-          <center><img src="{% static "img/afisha_default.jpg" %}" class="img-responsive">
+          <center><img src="{% static "img/afisha_default.jpg" %}"
+            class="img-responsive">
           </center>
         {% endif %}
         <div class="row">
-          <div class="col-md-6 col-md-offset-3"><h1>{{ show.show_date }} {{ show.venue }}</h1>
+          <div class="col-md-6 col-md-offset-3"><h1>{{ show.show_date }}
+              {{ show.venue }}</h1>
           </div>
           <div class="col-md-6 col-md-offset-3">
             <p class="newsblock">{{ show.show_info|linebreaksbr }}</p>
           </div>
         </div>
-
-
         <hr>
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <a class="btn btn-default" href="{% url "shows" %}" role="button">&laquo; Back to shows list</a>
+            <a class="btn btn-default" href="{% url "shows" %}"
+              role="button">&laquo; Back to shows list</a>
           </div>
         </div>
-
       </div>
     </div>
-
-
 
 {% endblock content %}

@@ -1,14 +1,19 @@
 {% extends "home/base.html" %}
 {% load static from staticfiles %}
 {% block meta_title %}Shows{% endblock meta_title %}
-{% block title %}Shows{% endblock title %}
+{% block extra_css %}
+{% if band.showspage_pic %}
+  <style>
+    #topContainer {
+      background-image:url("{{ band.showspage_pic.url }}");
+    }
+  </style>
+{% endif %}
+{% endblock extra_css %}
+{% block title %}{% endblock title %}
 {% block content %}
-    <div class = "container" id = "newsContainer">
-
-
-      <br><br><br><br><br>
+    <div class = "container" id = "topContainer">
       <div class = "container">
-
         <table class="table table-striped">
           <tbody>
             {% for show in shows %}
@@ -22,7 +27,4 @@
         </table>
       </div>
     </div>
-
-
-
 {% endblock content %}

@@ -1,7 +1,39 @@
 {% extends "home/base.html" %}
 {% load static from staticfiles %}
 {% block meta_title %}Новини{% endblock meta_title %}
-{% block title %}Новини{% endblock title %}
+{% block title %}{% endblock title %}
+{% block app_buttons %}
+  <p class="lead">
+    <a class="btn btn-info btn-lg" href="{% url 'edit_news' article.id %}"
+      role="button">Edit</a>
+    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+      data-target=".bs-example-modal-sm">Delete</button>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1"
+      role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="deleteNewsModalLabel">Confirm delete
+            </h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete the news {{ article.title }}?
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-danger" href="{% url 'delete_news' article.id %}"
+              role="button">Yes</a>
+            <button type="button" class="btn btn-default"
+              data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </p>
+{% endblock app_buttons %}
 {% block content %}
     <div class = "container" id = "newsContainer">
 
@@ -14,7 +46,8 @@
           <center><img src="{{ article.picture.url }}" class="img-responsive">
           </center>
         {% else %}
-          <center><img src="{% static "img/default.jpg" %}" class="img-responsive">
+          <center><img src="{% static "img/default.jpg" %}"
+            class="img-responsive">
           </center>
         {% endif %}
         <div class="row">
@@ -29,7 +62,8 @@
         <hr>
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <a class="btn btn-default" href="{% url "news" %}" role="button">&laquo; До всіх новин</a>
+            <a class="btn btn-default" href="{% url "news" %}"
+              role="button">&laquo; До всіх новин</a>
           </div>
         </div>
 

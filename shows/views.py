@@ -2,16 +2,21 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Poster
-from .forms import AddShowForm
+from .forms import AddShowForm, EditShowForm
+from home.models import HomepageInitialSettings, LinksBar
 
+band = HomepageInitialSettings.objects.all()[0]
+links = LinksBar.objects.all()
 
 def showspage(request):
     shows = Poster.objects.filter(show_date__gte=timezone.now()).order_by('show_date')
-    return render(request, 'home/showspage.html', {'shows': shows})
+    return render(request, 'home/showspage.html', {
+        'shows': shows,'band': band, 'links': links})
 
 def shownfo(request, pk):
     show = get_object_or_404(Poster, pk=pk)
-    return render(request, 'home/shownfo.html', {'show': show})
+    return render(request, 'home/shownfo.html', {
+        'show': show, 'band': band, 'links': links})
 
 @login_required
 def add_show(request):
@@ -28,13 +33,14 @@ def add_show(request):
             return redirect('shownfo', pk=show.pk)
     else:
         form = AddShowForm()
-    return render(request, 'home/show_edit.html', {'form': form})
+    return render(request, 'home/show_add.html', {
+        'form': form, 'band': band, 'links': links})
 
 @login_required
 def edit_show(request, pk):
-    show = get_object_or_404(Article, pk=pk)
+    show = get_object_or_404(Poster, pk=pk)
     if request.method == "POST":
-        form = AddShowForm(request.POST, instance=show)
+        form = EditShowForm(request.POST, instance=show)
         if form.is_valid():
             show = form.save(commit=False)
             show.published_date = timezone.now()
@@ -45,5 +51,12 @@ def edit_show(request, pk):
             show.save()
             return redirect('shownfo', pk=show.pk)
     else:
-        form = AddShowForm(instance=show)
-    return render(request, 'home/news_show.html', {'form': form})
+        form = EditShowForm(instance=show)
+    return render(request, 'home/show_edit.html', {
+        'form': form, 'band': band, 'links': links})
+
+@login_required
+def delete_show(request, pk):
+    show = get_object_or_404(Poster, pk=pk)
+    show.delete()
+    return redirect('shows')

@@ -1,17 +1,22 @@
 {% extends "home/base.html" %}
 {% load static from staticfiles %}
-{% block meta_title %}Новини{% endblock meta_title %}
-{% block title %}Новини{% endblock title %}
+{% block meta_title %}News{% endblock meta_title %}
+{% block extra_css %}
+{% if band.newspage_pic %}
+  <style>
+    #topContainer {
+      background-image:url("{{ band.newspage_pic.url }}");
+    }
+  </style>
+{% endif %}
+{% endblock extra_css %}
+{% block title %}{% endblock title %}
 {% block content %}
-    <div class = "container" id = "newsContainer">
-
-
-      <br><br><br><br><br>
+    <div class = "container" id = "topContainer">
       <div class = "container">
-
         {% for article in news %}
-
-          <h2><a href="{% url 'readthenews' pk=article.pk %}">{{ article.title }}</a></h2>
+          <h2><a href="{% url 'readthenews' pk=article.pk %}">
+            {{ article.title }}</a></h2>
           <p>{{ article.published_date }}</p>
           <div class = "row">
             <div class = "col-md-4">
@@ -22,7 +27,10 @@
               {% endif %}
             </div>
             <div class = "col-md-4">
-              <p class="newsblock">{{ article.blog_content|linebreaksbr|truncatewords:50 }}<a href="{% url 'readthenews' pk=article.pk %}"> READ MORE</a></p>
+              <p class="newsblock">
+                {{ article.blog_content|linebreaksbr|truncatewords:50 }}
+                <a href="{% url 'readthenews' pk=article.pk %}"> READ MORE</a>
+              </p>
             </div>
           </div>
           <hr>
