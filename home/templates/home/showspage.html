@@ -18,8 +18,10 @@
           <tbody>
             {% for show in shows %}
               <tr>
-                <th scope="row"><a href="{% url 'shownfo' pk=show.pk %}">{{ show.show_date }}</a></th>
-                <td><a href="{% url 'shownfo' pk=show.pk %}">{{ show.venue }}</a></td>
+                <th scope="row"><a href="{% url 'shownfo' pk=show.pk %}">
+                  {{ show.show_date }}</a></th>
+                <td><a href="{% url 'shownfo' pk=show.pk %}">
+                  {{ show.venue }}</a></td>
                 <td><a href = "{{ show.tickets_link }}">Tickets</a></td>
               </tr>
             {% endfor %}

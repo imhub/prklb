@@ -1,6 +1,6 @@
 {% extends "home/base.html" %}
 {% load static from staticfiles %}
-{% block meta_title %}Новини{% endblock meta_title %}
+{% block meta_title %}News{% endblock meta_title %}
 {% block title %}{% endblock title %}
 {% block app_buttons %}
   <p class="lead">
@@ -31,17 +31,11 @@
         </div>
       </div>
     </div>
-
   </p>
 {% endblock app_buttons %}
 {% block content %}
     <div class = "container" id = "newsContainer">
-
-
-      <br><br><br><br><br>
       <div class = "container">
-
-
         {% if article.picture %}
           <center><img src="{{ article.picture.url }}" class="img-responsive">
           </center>
@@ -57,19 +51,13 @@
             <p class="newsblock">{{ article.blog_content|linebreaksbr }}</p>
           </div>
         </div>
-
-
         <hr>
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <a class="btn btn-default" href="{% url "news" %}"
-              role="button">&laquo; До всіх новин</a>
+              role="button">&laquo; Back</a>
           </div>
         </div>
-
       </div>
     </div>
-
-
-
 {% endblock content %}

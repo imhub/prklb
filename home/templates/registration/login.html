@@ -2,14 +2,12 @@
 {% block meta_title %}Authenticate{% endblock meta_title %}
 {% block title %}Authenticate{% endblock title %}
 
-
 {% block content %}
 <div class="container">
-{% if form.errors %}
-     <h3>Your username and password didn't match. Please get the fucking hell
-        out of here.</h3>
-{% endif %}
-
+  {% if form.errors %}
+       <h3>Your username and password didn't match. Please get the fucking hell
+          out of here.</h3>
+  {% endif %}
 
   <div class = "jumbotron">
      <form method="post" action="{% url 'login' %}">

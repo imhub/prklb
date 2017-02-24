@@ -2,10 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 from .models import Article
 from .forms import AddNewsForm, EditNewsForm
 from home.models import HomepageInitialSettings, LinksBar
-
 
 band = HomepageInitialSettings.objects.all()[0]
 links = LinksBar.objects.all()
@@ -41,6 +41,7 @@ def add_news(request):
             except KeyError:
                 pass
             article.save()
+            messages.success(request, "You added news article successfully!")
             return redirect('readthenews', pk=article.pk)
     else:
         form = AddNewsForm()
@@ -60,6 +61,7 @@ def edit_news(request, pk):
             except KeyError:
                 pass
             article.save()
+            messages.success(request, "Changes saved!")
             return redirect('readthenews', pk=article.pk)
     else:
         form = EditNewsForm(instance=article)
@@ -70,4 +72,5 @@ def edit_news(request, pk):
 def delete_news(request, pk):
     article = get_object_or_404(Article, pk=pk)
     article.delete()
+    messages.success(request, "News article deleted")
     return redirect('news')

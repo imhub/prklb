@@ -27,9 +27,9 @@ class AddNewsForm(forms.ModelForm):
         self.helper.field_class = 'col-sm-6'
 
         # form buttons
-        self.helper.add_input(Submit('submit', 'Save',
+        self.helper.add_input(Submit('submit_button', 'Save',
             css_class='btn-success'))
-        self.helper.add_input(Button('cancel', 'Cancel',css_class='btn',
+        self.helper.add_input(Button('cancel_button', 'Cancel',css_class='btn',
             onclick="javascript:window.history.back();"))
 
 
