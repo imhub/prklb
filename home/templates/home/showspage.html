@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
-{% block meta_title %}Shows{% endblock meta_title %}
+{% block meta_title %}{% trans "Shows" %}{% endblock meta_title %}
 {% block extra_css %}
 {% if band.showspage_pic %}
   <style>
@@ -22,7 +23,7 @@
                   {{ show.show_date }}</a></th>
                 <td><a href="{% url 'shownfo' pk=show.pk %}">
                   {{ show.venue }}</a></td>
-                <td><a href = "{{ show.tickets_link }}">Tickets</a></td>
+                <td><a href = "{{ show.tickets_link }}">{% trans "Tickets" %}</a></td>
               </tr>
             {% endfor %}
           </tbody>

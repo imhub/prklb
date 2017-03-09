@@ -1,8 +1,9 @@
 {% extends "home/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
-{% block meta_title %}Add show{% endblock meta_title %}
-{% block title %}Add show{% endblock title %}
+{% block meta_title %}{% trans "Add show" %}{% endblock meta_title %}
+{% block title %}{% trans "Add show" %}{% endblock title %}
 <!-- adding crispy forms -->
 
 {{ block.super }}

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import HomepageInitialSettings, LinksBar
 from news.views import *
 

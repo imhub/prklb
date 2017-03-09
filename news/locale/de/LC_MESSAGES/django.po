@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-09 14:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: news/forms.py:31 news/forms.py:64
+msgid "Save"
+msgstr "Speichern"
+
+#: news/forms.py:33 news/forms.py:66
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: news/models.py:8 news/models.py:9
+msgid "Band news"
+msgstr "Bandnachrichten"
+
+#: news/models.py:15
+msgid "News title"
+msgstr "Nachrichtentitel"
+
+#: news/models.py:21
+msgid "News text"
+msgstr "Nachrichtentext"
+
+#: news/models.py:26
+msgid "Picture"
+msgstr "Das Bild"
+
+#: news/models.py:32
+msgid "Created date"
+msgstr "Erstellungsdatum"
+
+#: news/models.py:38
+msgid "Published date"
+msgstr "Publikationsdatum"
+
+#: news/views.py:47
+msgid "You added news article "
+msgstr "Sie haben die Nachricht hinzugefuegt"
+
+#: news/views.py:48
+msgid " successfully!"
+msgstr " erfolgreich!"
+
+#: news/views.py:68
+msgid "Changes saved!"
+msgstr "Aenderungen sind gespeichert!"
+
+#: news/views.py:79
+msgid "News article "
+msgstr "Nachrichtenartikel "
+
+#: news/views.py:79
+msgid " deleted"
+msgstr " geloescht"

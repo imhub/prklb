@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
-{% block meta_title %}News{% endblock meta_title %}
+{% block meta_title %}{% trans "News" %}{% endblock meta_title %}
 {% block extra_css %}
 {% if band.newspage_pic %}
   <style>

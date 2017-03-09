@@ -1,12 +1,14 @@
 {% extends "home/base.html" %}
-{% block meta_title %}Authenticate{% endblock meta_title %}
-{% block title %}Authenticate{% endblock title %}
+{% load i18n %}
+{% block meta_title %}{% trans "Authenticate" %}{% endblock meta_title %}
+{% block title %}{% trans "Authenticate" %}{% endblock title %}
 
 {% block content %}
 <div class="container">
   {% if form.errors %}
-       <h3>Your username and password didn't match. Please get the fucking hell
-          out of here.</h3>
+       <h3>{% trans "Your username and password didn't match.
+         Please get the fucking hell
+          out of here." %}"</h3>
   {% endif %}
 
   <div class = "jumbotron">

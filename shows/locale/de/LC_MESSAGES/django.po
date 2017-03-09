@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-09 14:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: shows/forms.py:32
+msgid "Save"
+msgstr ""
+
+#: shows/forms.py:33
+msgid "Cancel"
+msgstr ""
+
+#: shows/models.py:8 shows/models.py:9
+msgid "Band shows"
+msgstr ""
+
+#: shows/models.py:15
+msgid "City, Venue"
+msgstr ""
+
+#: shows/models.py:21
+msgid "Date of Show"
+msgstr ""
+
+#: shows/models.py:27
+msgid "Show Info"
+msgstr ""
+
+#: shows/models.py:32
+msgid "Affiche"
+msgstr ""
+
+#: shows/models.py:39
+msgid "Link to buy tickets"
+msgstr ""
+
+#: shows/models.py:45
+msgid "Published, date"
+msgstr ""
+
+#: shows/views.py:38
+msgid "You added new show in "
+msgstr ""
+
+#: shows/views.py:39
+msgid " successfully!"
+msgstr ""
+
+#: shows/views.py:59
+msgid "Changes saved!"
+msgstr ""
+
+#: shows/views.py:70
+msgid "Show in "
+msgstr ""
+
+#: shows/views.py:70
+msgid " deleted"
+msgstr ""

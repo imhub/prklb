@@ -1,5 +1,6 @@
 from django import forms
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
 from .models import Poster
 
@@ -28,8 +29,8 @@ class AddShowForm(forms.ModelForm):
         self.helper.field_class = 'col-sm-6'
 
         # form buttons
-        self.helper.add_input(Submit('submit', 'Save',css_class='btn-primary'))
-        self.helper.add_input(Button('cancel', 'Cancel',css_class='btn',
+        self.helper.add_input(Submit('submit', _('Save'),css_class='btn-primary'))
+        self.helper.add_input(Button('cancel', _('Cancel'),css_class='btn',
             onclick="javascript:window.history.back();"))
 
 

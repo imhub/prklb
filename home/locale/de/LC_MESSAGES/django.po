@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-09 14:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: home/models.py:7 home/models.py:8
+msgid "Site's initial settings"
+msgstr ""
+
+#: home/models.py:14
+msgid "Band Name"
+msgstr ""
+
+#: home/models.py:19
+msgid "Band Logo"
+msgstr ""
+
+#: home/models.py:25 home/templates/home/base.html:74
+#: home/templates/home/riderpage.html:4 home/templates/home/riderpage.html:5
+msgid "Technical Rider"
+msgstr "Der technische Reiter"
+
+#: home/models.py:33
+#, fuzzy
+#| msgid "Management Contacts"
+msgid "Management Phone"
+msgstr "Management Kontakten"
+
+#: home/models.py:40
+#, fuzzy
+#| msgid "Management Contacts"
+msgid "Management Email"
+msgstr "Management Kontakten"
+
+#: home/models.py:47
+#, fuzzy
+#| msgid "Management Contacts"
+msgid "Management Skype"
+msgstr "Management Kontakten"
+
+#: home/models.py:52
+msgid "Homepage Top Pictire"
+msgstr ""
+
+#: home/models.py:58
+msgid "Homepage Bottom Pictire"
+msgstr ""
+
+#: home/models.py:64
+msgid "Newspage Pictire"
+msgstr ""
+
+#: home/models.py:70
+msgid "Showspage Pictire"
+msgstr ""
+
+#: home/models.py:82
+msgid "Musicpage Pictire"
+msgstr ""
+
+#: home/models.py:89 home/models.py:90
+msgid "Band's links, social buttons etc"
+msgstr ""
+
+#: home/models.py:96
+msgid "Service name"
+msgstr ""
+
+#: home/models.py:102
+msgid "Link to band's page on the service"
+msgstr ""
+
+#: home/models.py:107
+msgid "Service's icon"
+msgstr ""
+
+#: home/templates/home/base.html:69 home/templates/home/homepage.html:22
+#: home/templates/home/newspage.html:4
+msgid "News"
+msgstr "Nachrichten"
+
+#: home/templates/home/base.html:70 home/templates/home/homepage.html:33
+msgid "Videos"
+msgstr "Videos"
+
+#: home/templates/home/base.html:71
+msgid "Albums"
+msgstr "Alben"
+
+#: home/templates/home/base.html:72
+msgid "Upcoming Shows"
+msgstr "Kommende Shows"
+
+#: home/templates/home/base.html:75
+msgid "Contacts"
+msgstr "Kontakten"
+
+#: home/templates/home/base.html:94
+msgid "Hello, "
+msgstr "Hallo, "
+
+#: home/templates/home/base.html:97
+msgid "Add News"
+msgstr "Neue Nachricht"
+
+#: home/templates/home/base.html:98
+msgid "Add Show"
+msgstr "Neue Show"
+
+#: home/templates/home/base.html:99
+msgid "Add Album"
+msgstr "Neues Album"
+
+#: home/templates/home/base.html:100
+msgid "Add Video"
+msgstr "Neues Video"
+
+#: home/templates/home/base.html:101
+msgid "Log Out"
+msgstr "Ausloggen"
+
+#: home/templates/home/homepage.html:4
+msgid "Official Site"
+msgstr "Die offiziele Seite"
+
+#: home/templates/home/homepage.html:24
+msgid "to news"
+msgstr "zu den Nachrichten"
+
+#: home/templates/home/homepage.html:27
+msgid "Music"
+msgstr "Musik"
+
+#: home/templates/home/homepage.html:30
+msgid "to music"
+msgstr "zur Musik"
+
+#: home/templates/home/homepage.html:35
+msgid "to videos"
+msgstr "zu den Videos"
+
+#: home/templates/home/homepage.html:38 home/templates/home/showspage.html:4
+msgid "Shows"
+msgstr "Shows"
+
+#: home/templates/home/homepage.html:42
+msgid "to shows"
+msgstr "zu den Shows"
+
+#: home/templates/home/homepage.html:50
+msgid "Management Contacts"
+msgstr "Management Kontakten"
+
+#: home/templates/home/news_add.html:5 home/templates/home/news_add.html:6
+msgid "Add news"
+msgstr "Neue Nachricht"
+
+#: home/templates/home/news_edit.html:5 home/templates/home/news_edit.html:6
+msgid "Edit news"
+msgstr "Nachricht edieren"
+
+#: home/templates/home/readthenews.html:10 home/templates/home/shownfo.html:9
+msgid "Edit"
+msgstr "Edieren"
+
+#: home/templates/home/readthenews.html:12 home/templates/home/shownfo.html:11
+msgid "Delete"
+msgstr "Loeschen"
+
+#: home/templates/home/readthenews.html:22 home/templates/home/shownfo.html:21
+msgid "Confirm delete"
+msgstr "Bestaetigen"
+
+#: home/templates/home/readthenews.html:26
+msgid "Are you sure you want to delete the news"
+msgstr ""
+
+#: home/templates/home/readthenews.html:30 home/templates/home/shownfo.html:29
+msgid "Yes"
+msgstr "Ja"
+
+#: home/templates/home/readthenews.html:32 home/templates/home/shownfo.html:31
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: home/templates/home/readthenews.html:62
+msgid "Back"
+msgstr "Zurueck"
+
+#: home/templates/home/riderpage.html:13
+msgid "For actual technical rider please contact band's management"
+msgstr ""
+"Für den technischen Reiter selbst bitte wenden sich an das Bandmanagement"
+
+#: home/templates/home/show_add.html:5 home/templates/home/show_add.html:6
+msgid "Add show"
+msgstr "Neue Show"
+
+#: home/templates/home/show_edit.html:5 home/templates/home/show_edit.html:6
+msgid "Edit show"
+msgstr "Show edieren"
+
+#: home/templates/home/shownfo.html:4 home/templates/home/shownfo.html:5
+msgid "Show in "
+msgstr "Show in "
+
+#: home/templates/home/shownfo.html:24
+msgid "Are you sure you want to delete the info about the show in "
+msgstr ""
+
+#: home/templates/home/shownfo.html:25
+msgid " on "
+msgstr ""
+
+#: home/templates/home/shownfo.html:62
+msgid "Back to shows list"
+msgstr "Zurueck zur Showliste"
+
+#: home/templates/home/showspage.html:26
+msgid "Tickets"
+msgstr "Tickets"
+
+#: home/templates/registration/login.html:3
+#: home/templates/registration/login.html:4
+msgid "Authenticate"
+msgstr ""

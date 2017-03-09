@@ -1,13 +1,15 @@
 {% extends "home/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
-{% block meta_title %}News{% endblock meta_title %}
+{% block meta_title %}{{ article.title }}
+{% endblock meta_title %}
 {% block title %}{% endblock title %}
 {% block app_buttons %}
   <p class="lead">
     <a class="btn btn-info btn-lg" href="{% url 'edit_news' article.id %}"
-      role="button">Edit</a>
+      role="button">{% trans "Edit" %}</a>
     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-      data-target=".bs-example-modal-sm">Delete</button>
+      data-target=".bs-example-modal-sm">{% trans "Delete" %}</button>
     <div class="modal fade bs-example-modal-sm" tabindex="-1"
       role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm" role="document">
@@ -16,17 +18,18 @@
             <button type="button" class="close" data-dismiss="modal"
               aria-label="Close"><span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="deleteNewsModalLabel">Confirm delete
+            <h4 class="modal-title" id="deleteNewsModalLabel">
+              {% trans "Confirm delete" %}
             </h4>
           </div>
           <div class="modal-body">
-            Are you sure you want to delete the news {{ article.title }}?
+            {% trans "Are you sure you want to delete the news" %} {{ article.title }}?
           </div>
           <div class="modal-footer">
             <a class="btn btn-danger" href="{% url 'delete_news' article.id %}"
-              role="button">Yes</a>
+              role="button">{% trans "Yes" %}</a>
             <button type="button" class="btn btn-default"
-              data-dismiss="modal">Cancel</button>
+              data-dismiss="modal">{% trans "Cancel" %}</button>
           </div>
         </div>
       </div>
@@ -45,7 +48,8 @@
           </center>
         {% endif %}
         <div class="row">
-          <div class="col-md-6 col-md-offset-3"><h1>{{ article.title }}</h1>
+          <div class="col-md-6 col-md-offset-3">
+            <h1>{{ article.title }}</h1>
           </div>
           <div class="col-md-6 col-md-offset-3">
             <p class="newsblock">{{ article.blog_content|linebreaksbr }}</p>
@@ -55,7 +59,7 @@
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <a class="btn btn-default" href="{% url "news" %}"
-              role="button">&laquo; Back</a>
+              role="button">&laquo; {% trans "Back" %}</a>
           </div>
         </div>
       </div>

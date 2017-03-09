@@ -1,5 +1,6 @@
 from django import forms
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
 
 from .models import Article
 
@@ -27,9 +28,9 @@ class AddNewsForm(forms.ModelForm):
         self.helper.field_class = 'col-sm-6'
 
         # form buttons
-        self.helper.add_input(Submit('submit_button', 'Save',
+        self.helper.add_input(Submit('submit_button', _('Save'),
             css_class='btn-success'))
-        self.helper.add_input(Button('cancel_button', 'Cancel',css_class='btn',
+        self.helper.add_input(Button('cancel_button', _('Cancel'),css_class='btn',
             onclick="javascript:window.history.back();"))
 
 
@@ -60,9 +61,9 @@ class EditNewsForm(forms.ModelForm):
         self.helper.field_class = 'col-sm-6'
 
         # form buttons
-        self.helper.add_input(Submit('submit', 'Save',
+        self.helper.add_input(Submit('submit', _('Save'),
             css_class='btn-success'))
-        self.helper.add_input(Button('cancel', 'Cancel',css_class='btn',
+        self.helper.add_input(Button('cancel', _('Cancel'),css_class='btn',
             onclick="javascript:window.history.back();"))
 
 

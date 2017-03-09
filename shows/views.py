@@ -2,15 +2,19 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.utils.translation import ugettext as _
+
 from .models import Poster
 from .forms import AddShowForm, EditShowForm
+
 from home.models import HomepageInitialSettings, LinksBar
 
 band = HomepageInitialSettings.objects.all()[0]
 links = LinksBar.objects.all()
 
 def showspage(request):
-    shows = Poster.objects.filter(show_date__gte=timezone.now()).order_by('show_date')
+    shows = Poster.objects.filter(show_date__gte=timezone.now()).order_by\
+        ('show_date')
     return render(request, 'home/showspage.html', {
         'shows': shows,'band': band, 'links': links})
 
@@ -31,7 +35,8 @@ def add_show(request):
             except KeyError:
                 pass
             show.save()
-            messages.success(request, "You added new show successfully!")
+            messages.success(request, _("You added new show in ")+ show.venue + \
+                _(" successfully!"))
             return redirect('shownfo', pk=show.pk)
     else:
         form = AddShowForm()
@@ -51,7 +56,7 @@ def edit_show(request, pk):
             except KeyError:
                 pass
             show.save()
-            messages.success(request, "Changes saved!")
+            messages.success(request, _("Changes saved!"))
             return redirect('shownfo', pk=show.pk)
     else:
         form = EditShowForm(instance=show)
@@ -62,5 +67,5 @@ def edit_show(request, pk):
 def delete_show(request, pk):
     show = get_object_or_404(Poster, pk=pk)
     show.delete()
-    messages.success(request, "Show deleted")
+    messages.success(request, _("Show in ")+ show.venue + _(" deleted"))
     return redirect('shows')

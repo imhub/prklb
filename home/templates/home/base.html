@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static from staticfiles %}
 
 <!DOCTYPE html>
@@ -7,8 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{{ band.bandsname }} - {% block meta_title %}{% endblock meta_title%}</title>
-    <meta name="description" value="{{ band.bandsname }} Official Site" />
+    <title>{{ band.bandsname }} - {% block meta_title %}{% endblock meta_title%}
+    </title>
+    <meta name="description"
+      value="{{ band.bandsname }} Official Site" />
 
     <!-- Bootstrap -->
 	<!-- Latest compiled and minified CSS -->
@@ -63,13 +66,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav" id="menu">
-            <li {% if '/news' in request.path %} class="active" {% endif %}><a href="{% url "news" %}">News <span class="sr-only">(current)</span></a></li>
-            <li {% if '/videos' in request.path %} class="active" {% endif %}><a href="{% url "videos" %}">Videos</a></li>
-            <li {% if '/music' in request.path %} class="active" {% endif %}><a href="{% url "music" %}">Albums</a></li>
-            <li {% if '/shows' in request.path %} class="active" {% endif %}><a href="{% url "shows" %}">Upcoming Shows</a></li>
+            <li {% if '/news' in request.path %} class="active" {% endif %}><a href="{% url "news" %}">{% trans "News" %} <span class="sr-only">(current)</span></a></li>
+            <li {% if '/videos' in request.path %} class="active" {% endif %}><a href="{% url "videos" %}">{% trans "Videos" %}</a></li>
+            <li {% if '/music' in request.path %} class="active" {% endif %}><a href="{% url "music" %}">{% trans "Albums" %}</a></li>
+            <li {% if '/shows' in request.path %} class="active" {% endif %}><a href="{% url "shows" %}">{% trans "Upcoming Shows" %}</a></li>
         <!-- add fuckin rider -->
-            <li><a href="/easyrider">Technical Rider</a></li>
-            <li><a href="#contacts">Contacts</a></li>
+            <li><a href="/easyrider">{% trans "Technical Rider" %}</a></li>
+            <li><a href="#contacts">{% trans "Contacts" %}</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="container-fluid">
@@ -88,14 +91,14 @@
 
     {% if user.is_authenticated %}
     <div class="jumbotron">
-      <h1 class="display-3">Hello {{ user.username }}! </h1>
+      <h1 class="display-3">{% trans "Hello, " %}{{ user.username }}! </h1>
       <hr class="my-4">
       <p class="lead">
-        <a class="btn btn-primary btn-lg" href="{% url 'add_news' %}" role="button">Add News</a>
-        <a class="btn btn-primary btn-lg" href="{% url 'add_show' %}" role="button">Add Show</a>
-        <a class="btn btn-primary btn-lg" href="{% url 'add_show' %}" role="button">Add Album</a>
-        <a class="btn btn-primary btn-lg" href="{% url 'add_show' %}" role="button">Add Video</a>
-        <a class="btn btn-danger btn-lg" href="{% url 'logout' %}" role="button">Log Out</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'add_news' %}" role="button">{% trans "Add News" %}</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'add_show' %}" role="button">{% trans "Add Show" %}</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'add_show' %}" role="button">{% trans "Add Album" %}</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'add_show' %}" role="button">{% trans "Add Video" %}</a>
+        <a class="btn btn-danger btn-lg" href="{% url 'logout' %}" role="button">{% trans "Log Out" %}</a>
         {% block app_buttons %}{% endblock app_buttons %}
       </p>
     </div>
