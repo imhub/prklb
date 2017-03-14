@@ -9,7 +9,7 @@ links = LinksBar.objects.all()
 def homepage(request):
     latestnews = Article.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0]
     return render(request, 'home/homepage.html', {
-        'latestnews': latestnews, 'band': band, 'links': links})
+        'latestnews': latestnews, 'band': band, 'links': links, 'available_languages': ['en', 'uk', 'de']})
 
 def riderpage(request):
     techrider = HomepageInitialSettings.objects.all()[0].rider
