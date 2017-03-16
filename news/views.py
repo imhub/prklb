@@ -10,7 +10,8 @@ from .forms import AddNewsForm, EditNewsForm
 
 from home.models import HomepageInitialSettings, LinksBar
 
-band = HomepageInitialSettings.objects.all()[0]
+if len(HomepageInitialSettings.objects.all()) != 0:
+    band = HomepageInitialSettings.objects.all()[0]
 links = LinksBar.objects.all()
 
 def newspage(request):

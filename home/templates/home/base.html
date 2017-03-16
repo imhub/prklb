@@ -65,7 +65,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{{ PORTAL_URL }}">
-            <img style="margin-top: -15px;" alt="{{ band.bandsname }}" src="{{ band.logo.url }}"></a>
+            <img style="margin-top: -15px;" alt="{{ band.bandsname }}"
+              src="{{ band.logo.url }}">
+          </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -91,7 +93,7 @@
                 <form class="navbar-form navbar-left" action="{% url 'set_language' %}" method="post"> {% csrf_token %}
                   <input name="next" type="hidden" value="{{ redirect_to }}" />
                   {% for language in languages %}
-                    <button type="submit" name="language" value="{{ language.code }}" class="btn-link">
+                    <button type="submit" name="language" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} class="btn-success"{% endif %} class="btn-link" >
                         [{{ language.code }}]</button>
                   {% endfor %}
                 </form>

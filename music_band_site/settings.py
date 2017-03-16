@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -94,13 +95,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'uk'
 
-LANGUAGES = (
-    ('uk', 'Ukrainian'),
-    ('en', 'English'),
-    ('de', "German"),
-    ('pl', "Polish"),
-)
-
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -108,6 +102,16 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#django-modeltranslation
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('uk', gettext('Ukrainian')),
+    ('en', gettext('English')),
+    ('de', gettext("German")),
+    ('pl', gettext("Polish")),
+)
 
 
 # Static files (CSS, JavaScript, Images)

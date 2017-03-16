@@ -9,7 +9,10 @@ from .forms import AddShowForm, EditShowForm
 
 from home.models import HomepageInitialSettings, LinksBar
 
-band = HomepageInitialSettings.objects.all()[0]
+try:
+    band = HomepageInitialSettings.objects.all()[0]
+except IndexError:
+    band = "Enter Band Name in "
 links = LinksBar.objects.all()
 
 def showspage(request):
