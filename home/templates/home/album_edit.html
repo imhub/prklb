@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% block meta_title %}{% trans "Edit album" %}{% endblock meta_title %}
+{% block title %}{% trans "Edit album" %}{% endblock title %}
+
+{{ block.super }}
+
+{% block content %}
+
+{% crispy form %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% block meta_title %}{% trans "Music" %}{% endblock meta_title %}
+{% block extra_css %}
+{% if band.musicpage_pic %}
+  <style>
+    #topContainer {
+      background-image:url("{{ band.musicpage_pic.url }}");
+    }
+  </style>
+{% endif %}
+{% endblock extra_css %}
+{% block title %}{% endblock title %}
+{% block content %}
+    <div class = "container" id = "topContainer">
+      <div class="row">
+        {% for album in albums %}
+        <div class="col-sm-6 col-md-4">
+          <a href = "{% url 'viewalbum' pk=album.pk %}" class="thumbnail">
+            <img src="{{ album.cover.url }}" alt="{{ album.title }}">
+            <div class="caption">
+              <h3>{{ album.title }} [{{ album.release_date|date:"Y"}}] {{ album.kind }}</h3>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock content %}
