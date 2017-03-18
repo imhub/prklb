@@ -1,0 +1,15 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% block meta_title %}{% trans "Add video" %}{% endblock meta_title %}
+{% block title %}{% trans "Add video" %}{% endblock title %}
+<!-- adding crispy forms -->
+
+{{ block.super }}
+
+{% block content %}
+
+{% crispy form %}
+
+{% endblock %}

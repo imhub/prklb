@@ -1,0 +1,48 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% block meta_title %}{% trans "Videos" %}{% endblock meta_title %}
+{% block extra_css %}
+{% if band.videospage_pic %}
+  <style>
+    #topContainer {
+      background-image:url("{{ band.videospage_pic.url }}");
+    }
+  </style>
+{% endif %}
+{% endblock extra_css %}
+{% block title %}{% endblock title %}
+{% block content %}
+    <div class = "container" id = "topContainer">
+      <div class = "container">
+        {% for video in videos %}
+          <h2><a href="{% url 'viewvideo' pk=video.pk %}">
+            {{ video.title }}</a></h2>
+          <div class = "row">
+            <div class = "col-md-6 col-md-offset-3">
+              {{ video.vid|safe }}
+              <p>{{ video.notes }}
+            </div>
+
+          </div>
+          <hr>
+        {% endfor %}
+      </div>
+      {% if news.has_other_pages %}
+        <nav>
+          <ul class="pagination">
+            <li><a href="{% url "news" %}?page=1">&laquo;</a></li>
+            {% for p in news.paginator.page_range %}
+              <li {% if news.number == p %}class="active"{% endif %}>
+                <a href="{% url "news" %}?page={{ p }}">{{ p }}</a>
+              </li>
+            {% endfor %}
+            <li>
+              <a href="{% url "news" %}?page={{ news.paginator.num_pages }}">&raquo;
+              </a>
+            </li>
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+{% endblock content %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 14:16+0000\n"
+"POT-Creation-Date: 2017-03-18 17:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 msgid "Band Logo"
 msgstr ""
 
-#: home/models.py:25 home/templates/home/base.html:74
+#: home/models.py:25 home/templates/home/base.html:78
 #: home/templates/home/riderpage.html:4 home/templates/home/riderpage.html:5
 msgid "Technical Rider"
 msgstr ""
@@ -84,48 +84,57 @@ msgstr ""
 msgid "Service's icon"
 msgstr ""
 
-#: home/templates/home/base.html:69 home/templates/home/homepage.html:22
+#: home/templates/home/album_add.html:5 home/templates/home/album_add.html:6
+msgid "Add album"
+msgstr ""
+
+#: home/templates/home/album_edit.html:5 home/templates/home/album_edit.html:6
+msgid "Edit album"
+msgstr ""
+
+#: home/templates/home/base.html:73 home/templates/home/homepage.html:22
 #: home/templates/home/newspage.html:4
 msgid "News"
 msgstr ""
 
-#: home/templates/home/base.html:70 home/templates/home/homepage.html:33
+#: home/templates/home/base.html:74 home/templates/home/homepage.html:34
+#: home/templates/home/videospage.html:4
 msgid "Videos"
 msgstr ""
 
-#: home/templates/home/base.html:71
+#: home/templates/home/base.html:75
 msgid "Albums"
 msgstr ""
 
-#: home/templates/home/base.html:72
+#: home/templates/home/base.html:76
 msgid "Upcoming Shows"
 msgstr ""
 
-#: home/templates/home/base.html:75
+#: home/templates/home/base.html:79
 msgid "Contacts"
 msgstr ""
 
-#: home/templates/home/base.html:94
+#: home/templates/home/base.html:106
 msgid "Hello, "
 msgstr ""
 
-#: home/templates/home/base.html:97
+#: home/templates/home/base.html:109
 msgid "Add News"
 msgstr ""
 
-#: home/templates/home/base.html:98
+#: home/templates/home/base.html:110
 msgid "Add Show"
 msgstr ""
 
-#: home/templates/home/base.html:99
+#: home/templates/home/base.html:111
 msgid "Add Album"
 msgstr ""
 
-#: home/templates/home/base.html:100
+#: home/templates/home/base.html:112
 msgid "Add Video"
 msgstr ""
 
-#: home/templates/home/base.html:101
+#: home/templates/home/base.html:113
 msgid "Log Out"
 msgstr ""
 
@@ -137,23 +146,23 @@ msgstr ""
 msgid "to news"
 msgstr ""
 
-#: home/templates/home/homepage.html:27
+#: home/templates/home/homepage.html:27 home/templates/home/musicpage.html:4
 msgid "Music"
 msgstr ""
 
-#: home/templates/home/homepage.html:30
+#: home/templates/home/homepage.html:31
 msgid "to music"
 msgstr ""
 
-#: home/templates/home/homepage.html:35
+#: home/templates/home/homepage.html:36
 msgid "to videos"
 msgstr ""
 
-#: home/templates/home/homepage.html:38 home/templates/home/showspage.html:4
+#: home/templates/home/homepage.html:39 home/templates/home/showspage.html:4
 msgid "Shows"
 msgstr ""
 
-#: home/templates/home/homepage.html:42
+#: home/templates/home/homepage.html:43
 msgid "to shows"
 msgstr ""
 
@@ -170,14 +179,17 @@ msgid "Edit news"
 msgstr ""
 
 #: home/templates/home/readthenews.html:10 home/templates/home/shownfo.html:9
+#: home/templates/home/viewalbum.html:10 home/templates/home/viewvideo.html:10
 msgid "Edit"
 msgstr ""
 
 #: home/templates/home/readthenews.html:12 home/templates/home/shownfo.html:11
+#: home/templates/home/viewalbum.html:12 home/templates/home/viewvideo.html:12
 msgid "Delete"
 msgstr ""
 
 #: home/templates/home/readthenews.html:22 home/templates/home/shownfo.html:21
+#: home/templates/home/viewalbum.html:22 home/templates/home/viewvideo.html:22
 msgid "Confirm delete"
 msgstr ""
 
@@ -186,14 +198,17 @@ msgid "Are you sure you want to delete the news"
 msgstr ""
 
 #: home/templates/home/readthenews.html:30 home/templates/home/shownfo.html:29
+#: home/templates/home/viewalbum.html:30 home/templates/home/viewvideo.html:30
 msgid "Yes"
 msgstr ""
 
 #: home/templates/home/readthenews.html:32 home/templates/home/shownfo.html:31
+#: home/templates/home/viewalbum.html:32 home/templates/home/viewvideo.html:32
 msgid "Cancel"
 msgstr ""
 
 #: home/templates/home/readthenews.html:62
+#: home/templates/home/viewalbum.html:62 home/templates/home/viewvideo.html:55
 msgid "Back"
 msgstr ""
 
@@ -227,6 +242,22 @@ msgstr ""
 
 #: home/templates/home/showspage.html:26
 msgid "Tickets"
+msgstr ""
+
+#: home/templates/home/video_add.html:5 home/templates/home/video_add.html:6
+msgid "Add video"
+msgstr ""
+
+#: home/templates/home/video_edit.html:5 home/templates/home/video_edit.html:6
+msgid "Edit video"
+msgstr ""
+
+#: home/templates/home/viewalbum.html:26
+msgid "Are you sure you want to delete the album"
+msgstr ""
+
+#: home/templates/home/viewvideo.html:26
+msgid "Are you sure you want to delete the video"
 msgstr ""
 
 #: home/templates/registration/login.html:3

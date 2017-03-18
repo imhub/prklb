@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 14:16+0000\n"
+"POT-Creation-Date: 2017-03-18 17:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,22 +51,22 @@ msgstr ""
 msgid "Published date"
 msgstr ""
 
-#: news/views.py:47
+#: news/views.py:48
 msgid "You added news article "
 msgstr ""
 
-#: news/views.py:48
+#: news/views.py:49
 msgid " successfully!"
 msgstr ""
 
-#: news/views.py:68
+#: news/views.py:69
 msgid "Changes saved!"
 msgstr ""
 
-#: news/views.py:79
+#: news/views.py:80
 msgid "News article "
 msgstr ""
 
-#: news/views.py:79
+#: news/views.py:80
 msgid " deleted"
 msgstr ""

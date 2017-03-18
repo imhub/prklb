@@ -17,54 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: news/forms.py:31 news/forms.py:64
+#: music/forms.py:31 music/forms.py:64
 msgid "Save"
 msgstr ""
 
-#: news/forms.py:33 news/forms.py:66
+#: music/forms.py:33 music/forms.py:66
 msgid "Cancel"
 msgstr ""
 
-#: news/models.py:8 news/models.py:9
-msgid "Band news"
+#: music/models.py:8
+msgid "Album"
 msgstr ""
 
-#: news/models.py:15
-msgid "News title"
+#: music/models.py:9
+msgid "Albums"
 msgstr ""
 
-#: news/models.py:21
-msgid "News text"
+#: music/models.py:15
+msgid "Release title"
 msgstr ""
 
-#: news/models.py:26
-msgid "Picture"
+#: music/models.py:22
+msgid "Release type - Album, Single, EP etc."
 msgstr ""
 
-#: news/models.py:32
-msgid "Created date"
+#: music/models.py:28
+msgid "Release notes"
 msgstr ""
 
-#: news/models.py:38
-msgid "Published date"
+#: music/models.py:33
+msgid "Album cover"
 msgstr ""
 
-#: news/views.py:48
-msgid "You added news article "
+#: music/models.py:40
+msgid "Embedded URL to albom at SoundCloud"
 msgstr ""
 
-#: news/views.py:49
+#: music/models.py:46
+msgid "Release Date"
+msgstr ""
+
+#: music/models.py:52
+msgid "Published, date"
+msgstr ""
+
+#: music/views.py:48
+msgid "You added new album "
+msgstr ""
+
+#: music/views.py:49
 msgid " successfully!"
 msgstr ""
 
-#: news/views.py:69
+#: music/views.py:69
 msgid "Changes saved!"
 msgstr ""
 
-#: news/views.py:80
-msgid "News article "
+#: music/views.py:80
+msgid "Album "
 msgstr ""
 
-#: news/views.py:80
+#: music/views.py:80
 msgid " deleted"
 msgstr ""

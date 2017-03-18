@@ -16,55 +16,60 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: news/forms.py:31 news/forms.py:64
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+#: videos/forms.py:31 videos/forms.py:64
 msgid "Save"
 msgstr ""
 
-#: news/forms.py:33 news/forms.py:66
+#: videos/forms.py:33 videos/forms.py:66
 msgid "Cancel"
 msgstr ""
 
-#: news/models.py:8 news/models.py:9
-msgid "Band news"
+#: videos/models.py:8
+msgid "Band video"
 msgstr ""
 
-#: news/models.py:15
-msgid "News title"
+#: videos/models.py:9
+msgid "Band videos"
 msgstr ""
 
-#: news/models.py:21
+#: videos/models.py:15
+msgid "Video title"
+msgstr ""
+
+#: videos/models.py:21
 msgid "News text"
 msgstr ""
 
-#: news/models.py:26
-msgid "Picture"
+#: videos/models.py:27
+msgid "Embedded YouTube URL to video"
 msgstr ""
 
-#: news/models.py:32
+#: videos/models.py:32
 msgid "Created date"
 msgstr ""
 
-#: news/models.py:38
+#: videos/models.py:38
 msgid "Published date"
 msgstr ""
 
-#: news/views.py:48
-msgid "You added news article "
+#: videos/views.py:44
+msgid "You added new video "
 msgstr ""
 
-#: news/views.py:49
+#: videos/views.py:45
 msgid " successfully!"
 msgstr ""
 
-#: news/views.py:69
+#: videos/views.py:61
 msgid "Changes saved!"
 msgstr ""
 
-#: news/views.py:80
-msgid "News article "
+#: videos/views.py:72
+msgid "Video "
 msgstr ""
 
-#: news/views.py:80
+#: videos/views.py:72
 msgid " deleted"
 msgstr ""
