@@ -1,0 +1,69 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% block meta_title %}{% trans "Official Site" %}{% endblock meta_title %}
+{% block extra_css %}
+<style media="screen" type="text/css">
+  #topContainer {
+    background-image:url("{{ band.homepage_pic_top.url }}");
+  }
+  #bottomContainer {
+    background-image:url("{{ band.homepage_pic_bottom.url }}");
+  }
+</style>
+{% endblock extra_css %}
+{% block content %}
+    <div class = "container" id = "topContainer">
+    </div>
+
+    <div class = "container" id = "bottomContainer">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>{% trans "News" %}</h2>
+          <p class="news">{{ latestnews.blog_content|linebreaksbr|truncatewords:30 }}{% if latestnews.pk %}<a href = "{% url "readthenews" pk=latestnews.pk %}">READ MORE</a>{% endif %}</p>
+          <p><a class="btn btn-default" href="{% url "news" %}" role="button">{% trans "to news" %} &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>{% trans "Music" %}</h2>
+          <iframe width="100%" height="200" scrolling="no" frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/215056872&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+          </iframe>
+          <p><a class="btn btn-default" href="{% url "music" %}" role="button">{% trans "to music" %} &raquo;</a></p>
+       </div>
+        <div class="col-md-3">
+          <h2>{% trans "Videos" %}</h2>
+          <iframe width="100%" height="200" src="https://www.youtube.com/embed/g4HioNv6JVs" frameborder="0" allowfullscreen></iframe>
+          <p><a class="btn btn-default" href="{% url "videos" %}" role="button">{% trans "to videos" %} &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>{% trans "Shows" %}</h2>
+          <a href="img/afisha.jpg">
+            <img class="media-object" src="{% static "img/afisha.jpg" %}" alt="docker" height="200">
+          </a>
+          <p><a class="btn btn-default" href="{% url "shows" %}" role="button">{% trans "to shows" %} &raquo;</a></p>
+        </div>
+      </div>
+
+      <a name = contacts></a>
+      <div class = "row">
+
+        <h2 class="center title">{% trans "Management Contacts" %}</h2>
+        <br>
+        <div class="col-md-2 col-md-offset-3">
+          <center><p id = "email"><img src="{% static "icons/email.png" %}" onclick="message('{{ band.email }}', 'email')"/></p></center>
+        </div>
+        <div class="col-md-2">
+          <center><p id = "phone"><img src="{% static "icons/phone.png" %}"onclick="message('{{ band.phone }}', 'phone')"/></p></center>
+        </div>
+        <div class="col-md-2">
+          <center><p id = "skype"><img src="{% static "icons/skype.png" %}"onclick="message('{{ band.skype }}', 'skype')"/></p></center>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class = "container" id = "topContainer">
+    </div>
+
+{% endblock content %}

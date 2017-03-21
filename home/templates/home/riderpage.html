@@ -2,17 +2,42 @@
 {% load i18n %}
 {% load static from staticfiles %}
 {% block meta_title %}{% trans "Technical Rider" %}{% endblock meta_title %}
-{% block title %}{% trans "Technical Rider" %}{% endblock title %}
+{% block extra_css %}
+{% if band.homepage_pic_top.url %}
+<style media="screen" type="text/css">
+  body {
+    background-image:url("{{ band.homepage_pic_top.url }}");
+  }
+</style>
+{% endif %}
+{% endblock extra_css %}
 {% block content %}
-    <div class = "container" id = "topContainer">
-      <div class = "container">
-        {% if techrider %}
-          <center><img src="{{ techrider.url }}" class="img-responsive">
-          </center>
-        {% else %}
-          <p class="newsblock">{% trans "For actual technical rider please contact band's management" %}</p>
-        {% endif %}
-        <hr>
+<div class = "container" id = "topContainer">
+  <div class = "container">
+    {% if techrider_arch %}
+      <a class="btn btn-primary btn-lg" href="{{ techrider_arch.url}}"
+        role="button">{% trans "Download Technical Rider" %}
+      </a>
+    {% endif %}
+    <hr>
+    {% if techrider_img %}
+      <div class="row">
+        {% for rider in techrider_img %}
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <a href = "{{ rider.imgrider.url }}">
+                <img style="width: 300px; height: 200px" class = "thumbnail"
+                  src="{{ rider.imgrider.url }}" alt="{{ rider.comment }}">
+              </a>
+              <div class="caption">
+                <p><center>{{ rider.comment }}</center></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    </div>
+      {% endif %}
+    <hr>
+  </div>
+</div>
 {% endblock content %}

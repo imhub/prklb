@@ -16,8 +16,10 @@
     <div class = "container" id = "topContainer">
       <div class = "container">
         {% for video in videos %}
-          <h2><a href="{% url 'viewvideo' pk=video.pk %}">
-            {{ video.title }}</a></h2>
+          <div class = "col-md-6 col-md-offset-3">
+            <h2><a href="{% url 'viewvideo' pk=video.pk %}">
+              {{ video.title }}</a></h2>
+          </div>
           <div class = "row">
             <div class = "col-md-6 col-md-offset-3">
               {{ video.vid|safe }}
@@ -28,17 +30,17 @@
           <hr>
         {% endfor %}
       </div>
-      {% if news.has_other_pages %}
+      {% if videos.has_other_pages %}
         <nav>
           <ul class="pagination">
-            <li><a href="{% url "news" %}?page=1">&laquo;</a></li>
-            {% for p in news.paginator.page_range %}
-              <li {% if news.number == p %}class="active"{% endif %}>
-                <a href="{% url "news" %}?page={{ p }}">{{ p }}</a>
+            <li><a href="{% url "videos" %}?page=1">&laquo;</a></li>
+            {% for p in videos.paginator.page_range %}
+              <li {% if videos.number == p %}class="active"{% endif %}>
+                <a href="{% url "videos" %}?page={{ p }}">{{ p }}</a>
               </li>
             {% endfor %}
             <li>
-              <a href="{% url "news" %}?page={{ news.paginator.num_pages }}">&raquo;
+              <a href="{% url "videos" %}?page={{ videos.paginator.num_pages }}">&raquo;
               </a>
             </li>
           </ul>

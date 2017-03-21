@@ -16,11 +16,12 @@
     <div class = "container" id = "topContainer">
       <div class="row">
         {% for album in albums %}
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-2">
           <a href = "{% url 'viewalbum' pk=album.pk %}" class="thumbnail">
-            <img src="{{ album.cover.url }}" alt="{{ album.title }}">
+            <img style="width: 200px; height: 200px" class = "thumbnail" src="{{ album.cover.url }}" alt="{{ album.title }}"
+              width="400" height="400">
             <div class="caption">
-              <h3>{{ album.title }} [{{ album.release_date|date:"Y"}}] {{ album.kind }}</h3>
+              <h3><center>{{ album.title }} [{{ album.release_date|date:"Y"}}] {{ album.kind }}</center></h3>
             </div>
           </a>
         </div>

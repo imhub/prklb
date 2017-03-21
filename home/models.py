@@ -20,12 +20,6 @@ class HomepageInitialSettings(models.Model):
         null=True
         )
 
-    rider = models.ImageField(
-        blank=True,
-        verbose_name=_("Technical Rider"),
-        null=True
-        )
-
     phone = models.CharField(
         max_length = 15,
         blank=False,
@@ -106,3 +100,61 @@ class LinksBar(models.Model):
         blank=False,
         verbose_name=_("Service's icon"),
         )
+
+    def __str__(self):
+        return "%s" %(self.linkname)
+
+class TechRiderArch(models.Model):
+
+    class Meta(object):
+        verbose_name=_("Technical Rider in archive")
+        verbose_name_plural=_("Technical Riders in archive")
+
+    archrider = models.FileField(
+        blank=True,
+        verbose_name=_("Technical Rider in archive"),
+        null=True
+        )
+
+
+class TechRiderImg(models.Model):
+
+    class Meta(object):
+        verbose_name=_("Technical Rider Image - Up to three images supported")
+        verbose_name_plural=_("Technical Rider Images")
+
+    imgrider = models.ImageField(
+        blank=True,
+        verbose_name=_("TechRider Img")
+        )
+
+    comment = models.CharField(
+        max_length=200,
+        blank=True,
+        null=True,
+        verbose_name=_("Rider Specification")
+        )
+
+    def __str__(self):
+        return "%s" %(self.comment)
+
+class CarouselImg(models.Model):
+
+    class Meta(object):
+        verbose_name=_("Homepage Carousel Image")
+        verbose_name_plural=_("Homepage Carousel Images")
+
+    carousel_img = models.ImageField(
+        blank=True,
+        verbose_name=_("Carousel Img")
+        )
+
+    comment = models.CharField(
+        max_length=400,
+        blank=True,
+        null=True,
+        verbose_name=_("Comment to img")
+        )
+
+    def __str__(self):
+        return "%s" %(self.comment)
