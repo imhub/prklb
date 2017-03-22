@@ -3,6 +3,15 @@
 {% load static from staticfiles %}
 {% block meta_title %}{{ video.title }}
 {% endblock meta_title %}
+{% block extra_css %}
+{% if band.homepage_pic_bottom %}
+<style media="screen" type="text/css">
+  body {
+    background-image:url("{{ band.homepage_pic_bottom.url }}");
+  }
+</style>
+{% endif %}
+{% endblock extra_css %}
 {% block title %}{% endblock title %}
 {% block app_buttons %}
   <p class="lead">
@@ -37,24 +46,22 @@
   </p>
 {% endblock app_buttons %}
 {% block content %}
-    <div class = "container" id = "newsContainer">
-      <div class = "container">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1>{{ video.title }}</h1>
-          </div>
-          <div class="col-md-6 col-md-offset-3">
-            {{ video.vid|safe }}
-            <p>{{ video.notes }}
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <a class="btn btn-default" href="{% url "videos" %}"
-              role="button">&laquo; {% trans "Back" %}</a>
-          </div>
-        </div>
+  <div class = "container">
+    <div class="row" id = "newsblock">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>{{ video.title }}</h1>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        {{ video.vid|safe }}
+        <p>{{ video.notes }}
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <a class="btn btn-default" href="{% url "videos" %}"
+          role="button">&laquo; {% trans "Back" %}</a>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

@@ -49,7 +49,7 @@ class HomepageInitialSettings(models.Model):
 
     homepage_pic_bottom = models.ImageField(
         blank=True,
-        verbose_name=_("Homepage Bottom Pictire"),
+        verbose_name=_("Videospage Pictire"),
         null=True
         )
 

@@ -4,11 +4,11 @@
 {% block meta_title %}{% trans "Music" %}{% endblock meta_title %}
 {% block extra_css %}
 {% if band.musicpage_pic %}
-  <style>
-    #topContainer {
-      background-image:url("{{ band.musicpage_pic.url }}");
-    }
-  </style>
+<style media="screen" type="text/css">
+  body {
+    background-image:url("{{ band.musicpage_pic.url }}");
+  }
+</style>
 {% endif %}
 {% endblock extra_css %}
 {% block title %}{% endblock title %}

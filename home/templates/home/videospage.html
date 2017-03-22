@@ -3,44 +3,41 @@
 {% load static from staticfiles %}
 {% block meta_title %}{% trans "Videos" %}{% endblock meta_title %}
 {% block extra_css %}
-{% if band.videospage_pic %}
-  <style>
-    #topContainer {
-      background-image:url("{{ band.videospage_pic.url }}");
-    }
-  </style>
+{% if band.homepage_pic_bottom %}
+<style media="screen" type="text/css">
+  body {
+    background-image:url("{{ band.homepage_pic_bottom.url }}");
+  }
+</style>
 {% endif %}
 {% endblock extra_css %}
 {% block title %}{% endblock title %}
 {% block content %}
-    <div class = "container" id = "topContainer">
-      <div class = "container">
-        {% for video in videos %}
-          <div class = "col-md-6 col-md-offset-3">
-            <h2><a href="{% url 'viewvideo' pk=video.pk %}">
-              {{ video.title }}</a></h2>
-          </div>
-          <div class = "row">
-            <div class = "col-md-6 col-md-offset-3">
-              {{ video.vid|safe }}
-              <p>{{ video.notes }}
+    <div class = "container">
+      {% for videorow in videos_by_three %}
+        <div class = "row" id = "newsblock">
+          {% for video in videorow %}
+            <div class = "col-md-4">
+              <h2><a href="{% url 'viewvideo' pk=video.pk %}">
+                {{ video.title }}</a></h2>
+              <div class = "embed-responsive embed-responsive-16by9">
+                {{ video.vid|safe }}
+              </div>
             </div>
-
-          </div>
-          <hr>
-        {% endfor %}
-      </div>
-      {% if videos.has_other_pages %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+      {% if videos_by_three.has_other_pages %}
         <nav>
           <ul class="pagination">
             <li><a href="{% url "videos" %}?page=1">&laquo;</a></li>
-            {% for p in videos.paginator.page_range %}
-              <li {% if videos.number == p %}class="active"{% endif %}>
+            {% for p in videos_by_three.paginator.page_range %}
+              <li {% if videos_by_three.number == p %}class="active"{% endif %}>
                 <a href="{% url "videos" %}?page={{ p }}">{{ p }}</a>
               </li>
             {% endfor %}
             <li>
-              <a href="{% url "videos" %}?page={{ videos.paginator.num_pages }}">&raquo;
+              <a href="{% url "videos" %}?page={{ videos_by_three.paginator.num_pages }}">&raquo;
               </a>
             </li>
           </ul>

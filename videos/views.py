@@ -15,18 +15,24 @@ if len(HomepageInitialSettings.objects.all()) != 0:
 links = LinksBar.objects.all()
 
 def videospage(request):
-    videos = Video.objects.filter(published_date__lte=timezone.now()).order_by(
-        '-published_date')
-    paginator = Paginator(videos, 5)
+    videos_list = Video.objects.filter(published_date__lte=timezone.now()).\
+        order_by('-published_date')
+    videos_by_three = []
+    for i in range(len(videos_list)):
+        if i % 3 == 0:
+            videos_by_three.append([videos_list[i]])
+        else:
+            videos_by_three[i // 3].append(videos_list[i])
+    paginator = Paginator(videos_by_three, 3)
     page = request.GET.get('page')
     try:
-        videos = paginator.page(page)
+        videos_by_three = paginator.page(page)
     except PageNotAnInteger:
-        videos = paginator.page(1)
+        videos_by_three = paginator.page(1)
     except EmptyPage:
-        videos = paginator.page(paginator.num_pages)
+        videos_by_three = paginator.page(paginator.num_pages)
     return render(request, 'home/videospage.html', {
-        'videos': videos, 'band': band, 'links': links})
+        'videos_by_three': videos_by_three, 'band': band, 'links': links})
 
 def viewvideo(request, pk):
     video = get_object_or_404(Video, pk=pk)

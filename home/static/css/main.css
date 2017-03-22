@@ -27,9 +27,9 @@ html {
   background-color:grey;
 }
 
-  h1, h2, h3, h4, h5, h6 {
+  /*h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-  }
+  }*/
 
   #menu {
     font-size:130%;
@@ -79,11 +79,11 @@ html {
     filter: alpha(opacity=60);
   }
 
-  p.newsblock{
+  #newsblock{
+    padding-top: 15px;
+    padding-bottom: 15px;
     height:auto;
-    background-color: grey;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
+    background-color: rgba(192,192,192,0.6);
   }
 
   .navbar-fixed-bottom{
