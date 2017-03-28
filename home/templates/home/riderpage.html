@@ -3,7 +3,7 @@
 {% load static from staticfiles %}
 {% block meta_title %}{% trans "Technical Rider" %}{% endblock meta_title %}
 {% block extra_css %}
-{% if band.homepage_pic_top.url %}
+{% if band.homepage_pic_top %}
 <style media="screen" type="text/css">
   body {
     background-image:url("{{ band.homepage_pic_top.url }}");

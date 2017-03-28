@@ -3,6 +3,15 @@
 {% load static from staticfiles %}
 {% block meta_title %}{{ album.title }}
 {% endblock meta_title %}
+{% block extra_css %}
+{% if band.musicpage_pic %}
+<style media="screen" type="text/css">
+  body {
+    background-image:url("{{ band.musicpage_pic.url }}");
+  }
+</style>
+{% endif %}
+{% endblock extra_css %}
 {% block title %}{% endblock title %}
 {% block app_buttons %}
   <p class="lead">
@@ -37,22 +46,32 @@
   </p>
 {% endblock app_buttons %}
 {% block content %}
-    <div class = "container" id = "newsContainer">
-      <div class = "container">
-        {% if album.cover %}
-          <center><img src="{{ album.cover.url }}" class="img-responsive">
-          </center>
-        {% else %}
-          <center><img src="{% static "img/default.jpg" %}"
-            class="img-responsive">
-          </center>
-        {% endif %}
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <h1>{{ album.title }}</h1>
-          </div>
-          <div class="col-md-6 col-md-offset-3">
-            <p class="newsblock">{{ album.blog_content|linebreaksbr }}</p>
+    <div class = "container">
+      <div class = "row" id = "newsblock">
+        <div class="col-md-6 col-md-offset-3">
+          {% if album.cover %}
+            <center><img style="width: 500px; height: 500px"
+              src="{{ album.cover.url }}" class="img-responsive">
+            </center>
+          {% else %}
+            <center><img src="{% static "img/default.jpg" %}"
+              class="img-responsive">
+            </center>
+            {% endif %}
+            <center><h3>{{ album.title }} [{{ album.release_date|date:"Y"}}]
+              {{ album.kind }}
+            </h3></center>
+            {% if album.buylinks.all|length > 0 %}
+            <center>
+            {% for buylink in album.buylinks.all %}
+              <a href="{{ buylink.linklink }}">
+                  <img alt="{{ buylink.linkname }}" src="{{ buylink.linkicon.url }}">
+              </a>
+            {% endfor %}
+            </center>
+            {% endif %}
+            {{ album.sc_link|safe }}
+            <p class="newsblock">{{ album.notes|linebreaksbr }}</p>
           </div>
         </div>
         <hr>
@@ -63,5 +82,5 @@
           </div>
         </div>
       </div>
-    </div>
+
 {% endblock content %}

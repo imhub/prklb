@@ -12,7 +12,7 @@ from home.models import HomepageInitialSettings, LinksBar
 try:
     band = HomepageInitialSettings.objects.all()[0]
 except IndexError:
-    band = "Enter Band Name in "
+    band = "Enter Band Name at administrative page"
 links = LinksBar.objects.all()
 
 def showspage(request):

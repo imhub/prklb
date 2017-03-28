@@ -3,7 +3,7 @@
 {% load static from staticfiles %}
 {% block meta_title %}{% trans "Official Site" %}{% endblock meta_title %}
 {% block extra_css %}
-{% if band.homepage_pic_top.url %}
+{% if band.homepage_pic_top %}
 <style media="screen" type="text/css">
   body {
     background-image:url("{{ band.homepage_pic_top.url }}");
@@ -48,34 +48,61 @@
   <br><br><br>
   <div class="row">
     <div class="col-md-3">
-      <p class="news">{{ latestnews.blog_content|linebreaksbr|truncatewords:30 }}{% if latestnews.pk %}<a href = "{% url "readthenews" pk=latestnews.pk %}">READ MORE</a>{% endif %}</p>
+      <p class="news">
+        {% if latestnews %}
+          {{ latestnews.blog_content|linebreaksbr|truncatewords:30 }}
+            <a href = "{% url "readthenews" pk=latestnews.pk %}">READ MORE
+          </a>
+        {% else %}
+          {{band.bandsname}} {% trans "have not provided any news yet" %}
+        {% endif %}
+      </p>
     </div>
     <div class="col-md-3">
-      <iframe width="100%" height="200" scrolling="no" frameborder="no"
+      <!--iframe width="100%" height="200" scrolling="no" frameborder="no"
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/215056872&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
-      </iframe>
+      </iframe-->
+      <div class = "embed-responsive embed-responsive-16by9">
+        {{ soundcloud|safe }}
+      </div>
    </div>
     <div class="col-md-3">
-      <iframe width="100%" height="200" src="https://www.youtube.com/embed/g4HioNv6JVs" frameborder="0" allowfullscreen></iframe>
+      <div class = "embed-responsive embed-responsive-16by9">
+        {{ video|safe }}
+      </div>
     </div>
     <div class="col-md-3">
-      <a href="{{ band.homepage_pic_top.url }}">
-        <img class="media-object img-responsive" src="{{ band.homepage_pic_top.url }}" alt="docker" height="200">
-      </a>
+      {% if next_show %}
+        {% if next_show.affiche %}
+          <a href="{{ next_show.affiche.url }}">
+            <img class="media-object img-responsive"
+             src="{{ next_show.affiche.url }}" alt="docker" height="200">
+          </a>
+        {% else %}
+          {% trans "Our next show is at "%} {{ next_show.venue }}
+          {% trans " on "%} {{ next_show.show_date }}
+        {% endif %}
+      {% else %}
+        Our schedule is clean. Please check later
+      {% endif %}
     </div>
   </div>
   <div class="row">
     <div class="col-md-3">
-      <p><a class="btn btn-default" href="{% url "news" %}" role="button">{% trans "to news" %} &raquo;</a></p>
+      <p><a class="btn btn-default" href="{% url "news" %}" role="button">
+        {% trans "to news" %} &raquo;</a></p>
     </div>
     <div class="col-md-3">
-      <p><a class="btn btn-default" href="{% url "music" %}" role="button">{% trans "to music" %} &raquo;</a></p>
+      <p><a class="btn btn-default" href="{% url "music" %}" role="button">
+        {% trans "to music" %} &raquo;</a></p>
    </div>
     <div class="col-md-3">
-      <p><a class="btn btn-default" href="{% url "videos" %}" role="button">{% trans "to videos" %} &raquo;</a></p>
+      <p><a class="btn btn-default" href="{% url "videos" %}" role="button">
+        {% trans "to videos" %} &raquo;</a></p>
     </div>
     <div class="col-md-3">
-      <p><a class="btn btn-default" href="{% url "shows" %}" role="button">{% trans "to shows" %} &raquo;</a></p>
+      <p><a class="btn btn-default" href="{% url "shows" %}" role="button">
+        {% trans "to shows" %} &raquo;</a></p>
     </div>
   </div>
 </div>

@@ -9,6 +9,12 @@
     background-image:url("{{ band.newspage_pic.url }}");
   }
 </style>
+{% else %}
+<style media="screen" type="text/css">
+  body {
+    background-image:url("{% static "img/default.jpg" %}");
+  }
+</style>
 {% endif %}
 {% endblock extra_css %}
 {% block title %}{% endblock title %}
@@ -17,7 +23,7 @@
     {% for article in news %}
       <h2><a href="{% url 'readthenews' pk=article.pk %}">
         {{ article.title }}</a></h2>
-      <p>{{ article.published_date }}</p>
+      <p>{{ article.published_date|date:"d E Y" }}</p>
       <div class = "row" id = "newsblock">
         <div class = "col-md-5">
           {% if article.picture %}
@@ -30,7 +36,11 @@
         <div class = "col-md-5">
           <p>
             {{ article.blog_content|linebreaksbr|truncatewords:100 }}
-            <a href="{% url 'readthenews' pk=article.pk %}"> READ MORE</a>
+            {% if article.blog_content|wordcount > 100 %}
+              <a href="{% url 'readthenews' pk=article.pk %}">
+                {% trans "READ MORE" %}
+              </a>
+            {% endif %}
           </p>
         </div>
       </div>

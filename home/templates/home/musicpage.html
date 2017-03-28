@@ -13,19 +13,36 @@
 {% endblock extra_css %}
 {% block title %}{% endblock title %}
 {% block content %}
-    <div class = "container" id = "topContainer">
-      <div class="row">
-        {% for album in albums %}
-        <div class="col-sm-2">
-          <a href = "{% url 'viewalbum' pk=album.pk %}" class="thumbnail">
-            <img style="width: 200px; height: 200px" class = "thumbnail" src="{{ album.cover.url }}" alt="{{ album.title }}"
-              width="400" height="400">
-            <div class="caption">
-              <h3><center>{{ album.title }} [{{ album.release_date|date:"Y"}}] {{ album.kind }}</center></h3>
-            </div>
+  <div class = "container">
+    <div class="row" id = "newsblock">
+      {% for album in albums %}
+      {% if albums|length == 1 %}
+      <div class="col-sm-12">
+      {% elif albums|length == 2 %}
+      <div class="col-sm-6">
+      {% else %}
+      <div class="col-md-4">
+      {% endif %}
+        <center><a href = "{% url 'viewalbum' pk=album.pk %}">
+          <img style="width: 300px; height: 300px"
+            src="{{ album.cover.url }}" alt="{{ album.title }}"
+            class = "img-responsive">
+        </a></center>
+        {% if album.buylinks.all|length > 0 %}
+        <center>
+        {% for buylink in album.buylinks.all %}
+          <a href="{{ buylink.linklink }}">
+              <img alt="{{ buylink.linkname }}"
+              src="{{ buylink.linkicon.url }}">
           </a>
-        </div>
         {% endfor %}
+        </center>
+        {% endif %}
+        <h3 class="center">{{ album.title }}
+            [{{ album.release_date|date:"Y"}}] {{ album.kind }}
+        </h3>
       </div>
+      {% endfor %}
     </div>
+  </div>
 {% endblock content %}

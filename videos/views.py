@@ -31,8 +31,15 @@ def videospage(request):
         videos_by_three = paginator.page(1)
     except EmptyPage:
         videos_by_three = paginator.page(paginator.num_pages)
-    return render(request, 'home/videospage.html', {
-        'videos_by_three': videos_by_three, 'band': band, 'links': links})
+    return render(
+                request,
+                'home/videospage.html',
+                {
+                    'videos_by_three': videos_by_three,
+                    'band': band,
+                    'links': links,
+                }
+                )
 
 def viewvideo(request, pk):
     video = get_object_or_404(Video, pk=pk)

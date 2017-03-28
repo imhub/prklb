@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
-from .models import Album
+from .models import Album, BuyLinks
 from .forms import AddAlbumForm, EditAlbumForm
 
 from home.models import HomepageInitialSettings, LinksBar
@@ -13,6 +13,7 @@ from home.models import HomepageInitialSettings, LinksBar
 if len(HomepageInitialSettings.objects.all()) != 0:
     band = HomepageInitialSettings.objects.all()[0]
 links = LinksBar.objects.all()
+buylinks = BuyLinks.objects.all()
 
 def musicpage(request):
     albums = Album.objects.filter(release_date__lte=timezone.now()).order_by(
@@ -25,13 +26,26 @@ def musicpage(request):
         albums = paginator.page(1)
     except EmptyPage:
         albums = paginator.page(paginator.num_pages)
-    return render(request, 'home/musicpage.html', {
-        'albums': albums, 'band': band, 'links': links})
+    return render(request,
+        'home/musicpage.html',
+        {
+            'albums': albums,
+            'band': band,
+            'links': links,
+            'buylinks': buylinks
+            }
+            )
 
 def viewalbum(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    return render(request, 'home/viewalbum.html', {
-        'album': album, 'band': band, 'links': links})
+    return render(request, 'home/viewalbum.html',
+        {
+        'album': album,
+        'band': band,
+        'links': links,
+        'buylinks': buylinks
+        }
+        )
 
 @login_required
 def add_album(request):
